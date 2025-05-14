@@ -1,4 +1,5 @@
 import {
+	Box,
 	Button,
 	Card,
 	CardActions,
@@ -9,7 +10,7 @@ import {
 import { Product } from "./products.model";
 import classes from "./css/products-card.module.css";
 import { SelectVariant } from "./modal-select-variant.component";
-import React from "react";
+import React, { useContext } from "react";
 import { appContext } from "../../appContext";
 import { searchProductById } from "./products.motor";
 import { openSnackBarProductAdded } from "../snackbar/snackbar.motor";
@@ -19,11 +20,12 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
-	const { name, price, variants } = props.product;
+	const { name, price, variants, img } = props.product;
 	const { productsInCart, setProductsInCart } = React.useContext(appContext).cartCTX;
-	
+	const { products } = useContext(appContext).productCTX;
+
 	const addToCart = (id: number) => {
-		const productFinded = searchProductById(id);
+		const productFinded = searchProductById(products, id);
 		setProductsInCart([...productsInCart, productFinded]);
 	};
 
@@ -48,14 +50,17 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
 		}
 	};
 
-	
+
 	return (
 		<Card className={classes["card"]}>
-			<CardMedia
-				component="img"
-				alt={name}
-				image={`imgs/products/${name}.jpg`}
-			/>
+			<Box sx={{ position: "relative", height: 145, width: "100%", overflow: "hidden" }}>
+				<CardMedia
+					component="img"
+					alt={name}
+					image={img}
+					style={{ objectFit: 'contain' }}
+				/>
+			</Box>
 			<CardContent className={classes["card-content"]}>
 				<Typography gutterBottom variant="body2" component="h3">
 					{name}

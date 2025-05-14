@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
+import FoodBank from "@mui/icons-material/FoodBank";
 import { NavListDrawer } from "./navbar-list-drawer.component";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
@@ -69,12 +70,12 @@ export const Navbar: React.FC<NavBarProps> = (props) => {
 						aria-label="menu"
 						onClick={() => setOpen(true)}
 					>
-						<MenuIcon />
+						<FoodBank sx={{ color: "#333" }} fontSize="large"/>
 						<Typography variant="h6" sx={{ ml: 1, textTransform: "none" }}>
-							Products
+							QuickTicket
 						</Typography>
 					</Button>
-
+{/* 
 					<Box>
 						<Button component={NavLink} to={"/"}>
 							<HomeIcon color="action" />
@@ -83,17 +84,17 @@ export const Navbar: React.FC<NavBarProps> = (props) => {
 							<ListAltIcon color="action"/>
 						</Button>
 						{enableCartButton()}
-					</Box>
+					</Box> */}
 				</Toolbar>
 			</AppBar>
 
-			<Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+			{/* <Drawer anchor="lef<MdFoodBank />t" open={open} onClose={() => setOpen(false)}>
 				<NavListDrawer
 					onClick={() => setOpen(false)}
 					navLinks={drawerLinks}
 					applyFilter={applyFilter}
 				/>
-			</Drawer>
+			</Drawer> */}
 		</>
 	);
 };

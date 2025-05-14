@@ -35,7 +35,7 @@ export const CartList: React.FC = () => {
 					<TableHead>
 						<TableRow className={classes["table-header"]}>
 							<TableCell>Product</TableCell>
-							<TableCell align="center">Qty.</TableCell>
+							<TableCell align="center">Qty</TableCell>
 							<TableCell align="right">Price</TableCell>
 							<TableCell align="right">Sum</TableCell>
 							<TableCell align="right"></TableCell>
@@ -51,7 +51,7 @@ export const CartList: React.FC = () => {
 					</TableBody>
 				</Table>
 			</TableContainer>
-			<CalcTotal/>
+			<CalcTotal />
 		</Box>
 	);
 };

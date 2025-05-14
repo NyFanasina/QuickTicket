@@ -54,8 +54,7 @@ export const CartItem: React.FC<CartItemProps> = (props) => {
 
 	return (
 		<TableRow>
-			<TableCell sx={{ p: 0, pl: 1 }}>
-				<EditPriceModal productInfo={props.productInfo} />
+			<TableCell sx={{ p: 0, pl: 2 }}>
 				{formattedDescription(desc)}
 				<Box sx={{ display: "flex", alignItems: "center", justifyContent: "left" }}>
 					{variantName && (

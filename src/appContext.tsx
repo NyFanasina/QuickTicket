@@ -12,9 +12,15 @@ interface OrderCTX {
 	setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
+interface ProductCTX {
+	products: Product[];
+	setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+}
+
 interface ContextType {
 	cartCTX: CartCTX;
 	orderCTX: OrderCTX;
+	productCTX: ProductCTX
 }
 
 export const appContext = React.createContext({} as ContextType);

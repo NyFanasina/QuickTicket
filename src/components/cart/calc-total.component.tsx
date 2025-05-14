@@ -27,14 +27,14 @@ export const CalcTotal: React.FC = () => {
 			cartButton = (
 				<Button variant="contained" color="success" onClick={handleOpen}>
 					<ShoppingBasketIcon sx={{ mr: 2 }} />
-					Place Order
+					Print Ticket
 				</Button>
 			);
 		} else {
 			cartButton = (
 				<Button variant="contained" color="success" disabled>
 					<ShoppingBasketIcon sx={{ mr: 2 }} />
-					Place Order
+					Print Ticket
 				</Button>
 			);
 		}
@@ -54,7 +54,7 @@ export const CalcTotal: React.FC = () => {
 		setOrders([...orders, newOrder]);
 		setProductsInCart([]);
 		handleClose();
-		if(location.pathname !== "/"){
+		if (location.pathname !== "/") {
 			navigate("/");
 		}
 	};
